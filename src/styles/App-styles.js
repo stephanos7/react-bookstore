@@ -1,7 +1,7 @@
 import config from "./config-styles";
 
 export default {
-  root: {
-    // to get this from global styles not config
+  html: {
+    fontFamily : config.mainFont
   }
 }
