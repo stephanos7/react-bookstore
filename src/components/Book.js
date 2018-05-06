@@ -5,7 +5,6 @@ import styles from "../styles/Book-styles";
 const Book = () => {
   return (
     <div style={styles.root}>
-      Book
     </div>
   )
 }

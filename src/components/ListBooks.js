@@ -10,12 +10,12 @@ const ListBooks = () => {
       <Book />
       <Book />
       <Book />
+      {/*<Book />
       <Book />
       <Book />
       <Book />
       <Book />
-      <Book />
-      <Book />
+      <Book />*/}
     </div>
   )
 }

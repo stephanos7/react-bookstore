@@ -3,8 +3,9 @@ import config from "./config-styles";
 export default {
   root:{
     display: "grid",
-    gridGap: 50,
-    gridTemplateColumns: "repeat(5, auto)",
-    backgroundColor: config.colors.lightGrey
+    gridGap: 20,
+    gridTemplateColumns: "repeat(auto-fill, 175px)",
+    backgroundColor: config.colors.lightGrey,
+    padding: "50px 0"
   }
 }

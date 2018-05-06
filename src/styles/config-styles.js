@@ -15,6 +15,7 @@ export default  {
     blueGradientLight: "#4A9AFF",
     blueGradientDark: "#2E3E4F",
     white: "#FFFFFF",
-    lightGrey: "#F0F0F0"
+    lightGrey: "#F0F0F0",
+    darkGrey: "#646464"
   }
 }
