@@ -9,7 +9,7 @@ export default {
     ...resetConfig,
     fontFamily : config.mainFont,
     fontSize: 24
-  },
+  },  
   // TODO:
   // use immutable.js to spread a nested object onto the app-styles export
   body: {...resetConfig},
