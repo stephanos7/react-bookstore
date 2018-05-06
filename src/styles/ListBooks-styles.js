@@ -2,6 +2,9 @@ import config from "./config-styles";
 
 export default {
   root:{
-    backgroundColor: config.lightGrey
+    display: "grid",
+    gridGap: 50,
+    gridTemplateColumns: "repeat(5, auto)",
+    backgroundColor: config.colors.lightGrey
   }
 }

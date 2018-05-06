@@ -7,7 +7,7 @@ export default {
   },
   html: {
     ...resetConfig,
-    fontFamily : config.mainFont,
+    fontFamily : config.fonts.mainFont,
     fontSize: 24
   },  
   // TODO:

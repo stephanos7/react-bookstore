@@ -8,9 +8,13 @@ export const resetConfig = {
 }
 
 export default  {
-  mainFont: "Roboto",
-  blueGradientLight: "#4A9AFF",
-  blueGradientDark: "#2E3E4F",
-  white: "#FFFFFF",
-  lightGrey: "#F0F0F0"
+  fonts:{
+    mainFont: "Roboto",
+  },
+  colors:{
+    blueGradientLight: "#4A9AFF",
+    blueGradientDark: "#2E3E4F",
+    white: "#FFFFFF",
+    lightGrey: "#F0F0F0"
+  }
 }
