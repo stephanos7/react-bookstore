@@ -1,8 +1,9 @@
 import React from "react";
+import styles from "../styles/Header-styles";
 
 const Header = () => {
   return (
-    <div>
+    <div style={styles.root}>
      the header
     </div>
   )
