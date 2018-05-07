@@ -4,11 +4,12 @@ import styles from "../styles/BookDetails-styles";
 import Authors from "./Authors";
 import Rating from "./Rating";
 
-const BookDetails = () => {
+const BookDetails = (props) => {
+  const {authorName} = props;
   return (
     <div style={styles.root}>
       <Rating />
-      <Authors />
+      <Authors authorName={authorName}/>
     </div>
   )
 }

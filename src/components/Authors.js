@@ -2,11 +2,12 @@ import React from "react";
 
 import styles from "../styles/Authors-styles";
 
-const Authors = () => {
+const Authors = (props) => {
+  const {authorName} = props;
   return (
     <div style={styles.root}>
       <h4>Authors</h4>
-      <p>Jason Jungles</p>
+      <p>{authorName}</p>
     </div>
   )
 }

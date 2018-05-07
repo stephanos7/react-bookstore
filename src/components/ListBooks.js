@@ -3,19 +3,13 @@ import React from "react";
 import Book from "./Book";
 import styles from "../styles/ListBooks-styles";
 
-const ListBooks = () => {
+const ListBooks = (props) => {
+  const {books} = props;
   return (
     <div style={styles.root}>
-      <Book />
-      <Book />
-      <Book />
-      <Book />
-      <Book />
-      {/*<Book />
-      <Book />
-      <Book />
-      <Book />
-      <Book />*/}
+      {books.map( book => (
+        <Book book={book}/>
+      ))}
     </div>
   )
 }
