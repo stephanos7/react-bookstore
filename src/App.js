@@ -1,5 +1,6 @@
 import React from 'react';
 import { Route } from "react-router-dom";
+import * as BooksAPI from "./utils/BooksAPI";
 import { Style } from "radium";
 
 import styles from "./styles/App-styles";
@@ -7,7 +8,12 @@ import Header from "./components/Header";
 import ListBooks from "./components/ListBooks";
 
 class App extends React.Component {
+
   state = {
+    books : []
+  }
+  
+  staticBooks = {
     books : [{ 
       mainTitle: "Harry Potter",
       secondaryTitle: "and the order of the Phoenix",
@@ -43,6 +49,13 @@ class App extends React.Component {
       coverImage: "https://i.pinimg.com/736x/27/ae/ea/27aeead381ca4692950774fa41aa6e89--book-cover-design-illustration-bookcover-design.jpg",
       summary: "A summary...."
     }]
+  }
+  fetchAllBooks(){
+    BooksAPI.getAll().then( books => this.setState( () => ({books})));  
+  }
+
+  componentDidMount(){
+    this.fetchAllBooks();
   }
 
   render() {

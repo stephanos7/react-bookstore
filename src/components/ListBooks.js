@@ -8,7 +8,8 @@ const ListBooks = (props) => {
   return (
     <div style={styles.root}>
       {books.map( book => (
-        <Book book={book}/>
+        <Book key={book.id} 
+              book={book}/>
       ))}
     </div>
   )
