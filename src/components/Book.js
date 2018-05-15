@@ -5,16 +5,26 @@ import Cover from "./Cover";
 import BookDetails from "./BookDetails";
 
 class Book extends React.Component {
-  handleClick = () => {
-    this.props.triggerIX();
+  state = {
+    selected : false
   }
+
+  selectBook = () => {
+    this.setState((prevState) => ({selected : !prevState.selected}) )
+  }
+
 
   render(){
     const {coverImage, authorName} = this.props.book;
+    const selectedStyle = {
+      width : this.state.selected ? 500 : null
+    }
     return (
-      <div style={styles.root} onClick={() => this.handleClick()}>
-        <Cover imageURL={coverImage}/>
-        <BookDetails authorName={authorName} />
+      <div>
+        <div style={{...styles.root, ...selectedStyle}} onClick={() => this.selectBook()}>
+          <Cover imageURL={coverImage}/>
+          <BookDetails authorName={authorName} />
+        </div>
       </div>
     )
   }

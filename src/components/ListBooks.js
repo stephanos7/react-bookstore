@@ -4,14 +4,6 @@ import Book from "./Book";
 import styles from "../styles/ListBooks-styles";
 
 class ListBooks extends React.Component {
-  state = {
-    toggle : false
-  }
-
-  triggerIX = () => {
-    this.setState( (currentState) => ({toggle: !currentState.toggle}) );
-  }
-
   render(){
     const {books} = this.props;
     return (
@@ -19,7 +11,7 @@ class ListBooks extends React.Component {
         {books.map( book => (
           <Book key={book.id} 
                 book={book}
-                triggerIX={this.triggerIX}/>
+                selectBook={this.selectBook}/>
         ))}
       </div>
     )
