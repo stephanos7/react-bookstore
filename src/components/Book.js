@@ -16,12 +16,11 @@ class Book extends React.Component {
 
   render(){
     const {coverImage, authorName} = this.props.book;
-    const selectedStyle = {
-      width : this.state.selected ? 500 : null
-    }
+    const stateStyle = this.state.selected ? styles.selected : styles.normal;
+
     return (
       <div>
-        <div style={{...styles.root, ...selectedStyle}} onClick={() => this.selectBook()}>
+        <div style={stateStyle} onClick={() => this.selectBook()}>
           <Cover imageURL={coverImage}/>
           <BookDetails authorName={authorName} />
         </div>
