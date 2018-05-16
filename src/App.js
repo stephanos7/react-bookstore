@@ -12,7 +12,7 @@ class App extends React.Component {
   state = {
     books : []
   }
-  fetchAllBooks = (cb) => BooksAPI.getAll().then( books => this.createProductLedger(books, this.setStateFromLedger));  
+  fetchAllBooks = (cb) => BooksAPI.getAll().then( books => cb(books, this.setStateFromLedger));  
 
   createProductLedger = (products, cb) => {
     const ledger = products.map( product => Object.defineProperties(product, {selected:{value:null, writable:true}}));
