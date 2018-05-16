@@ -1,7 +1,9 @@
 import React from 'react';
 import { Route } from "react-router-dom";
-import * as BooksAPI from "./utils/BooksAPI";
 import { Style } from "radium";
+
+import * as BooksAPI from "./utils/BooksAPI";
+import { enrichDataWithProductProperties } from "./utils/enrichProductData";
 
 import styles from "./styles/App-styles";
 import Header from "./components/Header";
@@ -12,16 +14,12 @@ class App extends React.Component {
   state = {
     books : []
   }
-  fetchAllBooks = (cb) => BooksAPI.getAll().then( books => cb(books, this.setStateFromLedger));  
+  fetchAllBooks = (cb) => BooksAPI.getAll().then( books => cb(books, this.setStateWithEnrichedProducts));  
 
-  createProductLedger = (products, cb) => {
-    const ledger = products.map( product => Object.defineProperties(product, {selected:{value:null, writable:true}}));
-    return cb(ledger);
-  }
-  setStateFromLedger = (productLedger) => this.setState((prevState) => ({books:productLedger}));
+  setStateWithEnrichedProducts = (enrichedDataSet) => this.setState((prevState) => ({books:enrichedDataSet}));
 
   componentDidMount(){
-    this.fetchAllBooks(this.createProductLedger);
+    this.fetchAllBooks(enrichDataWithProductProperties);
   }
 
   render() {
