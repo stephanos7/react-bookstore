@@ -4,6 +4,10 @@ import Book from "./Book";
 import styles from "../styles/ListBooks-styles";
 
 class ListBooks extends React.Component {
+  state = {
+    books : null
+  }
+
   render(){
     const {books} = this.props;
     return (

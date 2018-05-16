@@ -12,13 +12,16 @@ class App extends React.Component {
   state = {
     books : []
   }
-  
-  fetchAllBooks(){
-    BooksAPI.getAll().then( books => this.setState( () => ({books})));  
+  fetchAllBooks = (cb) => BooksAPI.getAll().then( books => this.createProductLedger(books, this.setStateFromLedger));  
+
+  createProductLedger = (products, cb) => {
+    const ledger = products.map( product => Object.defineProperties(product, {selected:{value:null, writable:true}}));
+    return cb(ledger);
   }
+  setStateFromLedger = (productLedger) => this.setState((prevState) => ({books:productLedger}));
 
   componentDidMount(){
-    this.fetchAllBooks();
+    this.fetchAllBooks(this.createProductLedger);
   }
 
   render() {
