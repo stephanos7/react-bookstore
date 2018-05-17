@@ -4,21 +4,18 @@ import Book from "./Book";
 import styles from "../styles/ListBooks-styles";
 
 class ListBooks extends React.Component {
-  state = {
-    books : null,
-    start : null,
-    end : null
-  }
+  // consider adding shelve components to control children behaviour on a per row basis
+
+  selectBook = () => console.log("parent was selected :")
   
   render(){
     const {books} = this.props;
     return (
       <div style={styles.root}>
         {books.map( (book, i) => (
-          <Book key={i} 
-                book={book}
-                selectBook={this.selectBook}/>
-        ))}
+          <div key={i} onClick={() => this.selectBook()}>
+            <Book book={book}/>
+          </div>))}
       </div>
     )
   }

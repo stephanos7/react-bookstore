@@ -5,7 +5,7 @@ import styles from "../styles/Cover-styles";
 const Cover = (props) => {
   const {imageURL} = props;
   return (
-    <div style={{...styles.root,background:`url(${imageURL})`,backgroundSize: "100%"}}>
+    <div style={styles.root}>
     </div>
   )
 }
