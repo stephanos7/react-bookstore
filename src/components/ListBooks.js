@@ -10,10 +10,9 @@ class ListBooks extends React.Component {
 
   grid = React.createRef();
 
-  showRef = () => {
-    console.log(this.grid.current) 
-    const gridColumnsComputedSyle = window.getComputedStyle(this.grid.current).getPropertyValue("grid-template-columns");
-    const numberOfColumns = gridColumnsComputedSyle.split(" ").length;
+  getNumberOfGridColumns = () => {
+    let gridColumnsComputedSyle = window.getComputedStyle(this.grid.current).getPropertyValue("grid-template-columns");
+    let numberOfColumns = gridColumnsComputedSyle.split(" ").length;
     console.log(numberOfColumns)
   }
 
@@ -24,7 +23,7 @@ class ListBooks extends React.Component {
     return (
       <div style={listStyles.root} ref={this.grid}>
         {books.map( (book, i) => (
-          <div style={dynamicStyle} key={i} onClick={() => this.showRef()}>
+          <div style={dynamicStyle} key={i} onClick={this.getNumberOfGridColumns}>
             <Book book={book}/>
           </div>))}
       </div>
