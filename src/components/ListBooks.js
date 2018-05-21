@@ -21,7 +21,7 @@ class ListBooks extends React.Component {
     const dynamicStyle = books.selected ? bookStyles.selected : bookStyles.normal;
 
     return (
-      <div style={listStyles.root} ref={this.grid} onChange={this.handleClick}>
+      <div style={listStyles.root} ref={this.grid}>
         {books.map( (book, i) => (
           <div style={dynamicStyle} key={i} onClick={() => this.showRef()}>
             <Book book={book}/>
