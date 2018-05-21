@@ -12,8 +12,9 @@ class ListBooks extends React.Component {
 
   showRef = () => {
     console.log(this.grid.current) 
-    const gridDOMnodeComputedSyle = window.getComputedStyle(this.grid.current).getPropertyValue("grid-template-columns");
-    console.log(gridDOMnodeComputedSyle)
+    const gridColumnsComputedSyle = window.getComputedStyle(this.grid.current).getPropertyValue("grid-template-columns");
+    const numberOfColumns = gridColumnsComputedSyle.split(" ").length;
+    console.log(numberOfColumns)
   }
 
   render(){
