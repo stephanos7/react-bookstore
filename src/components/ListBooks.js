@@ -1,4 +1,5 @@
 import React from "react";
+import { debounce } from "lodash";
 
 import Book from "./Book";
 import listStyles from "../styles/ListBooks-styles";
@@ -16,7 +17,10 @@ class ListBooks extends React.Component {
   }
 
   componentDidMount(){
-    window.addEventListener("resize", () => console.log("resized", this.getNumberOfGridColumns()))
+    window.addEventListener("resize", debounce(this.getNumberOfGridColumns, 400, {
+      'leading': false,
+      'trailing': true
+  }))
   }
 
   render(){
