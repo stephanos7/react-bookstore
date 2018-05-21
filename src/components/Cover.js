@@ -6,6 +6,7 @@ const Cover = (props) => {
   const {imageURL} = props;
   return (
     <div style={styles.root}>
+      <p>j</p>
     </div>
   )
 }

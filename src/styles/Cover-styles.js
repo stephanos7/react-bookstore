@@ -1,5 +1,5 @@
 export default {
   root : {
-    backgroundColor: "lightcoral"
+    backgroundColor: "lightcoral",
   }
 }

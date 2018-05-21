@@ -5,11 +5,10 @@ import Cover from "./Cover";
 import BookDetails from "./BookDetails";
 
 const Book = (props) => {
-  const {coverImage, authorName, selected} = props.book;
-  const propsStyle = selected ? styles.selected : styles.normal;
+  const {coverImage, authorName} = props.book;
 
   return(
-      <div style={propsStyle}>
+      <div>
         <Cover imageURL={coverImage} />
         <BookDetails authorName={authorName} />
       </div>
