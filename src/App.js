@@ -37,8 +37,8 @@ class App extends React.Component {
     let booksWithSelectedBook = books.filter( (book, i, arr) => {
       if(book._id === bookId){
         book.selected = true;
-        arr[i-1].selected = true;
-        arr[i+1].selected = true;
+        arr[i-1].collapsed = true;
+        arr[i+1].collapsed = true;
         
       }
       return book;
