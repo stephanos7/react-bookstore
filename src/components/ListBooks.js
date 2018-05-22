@@ -6,6 +6,11 @@ import listStyles from "../styles/ListBooks-styles";
 import bookStyles from "../styles/Book-styles";
 
 class ListBooks extends React.Component {
+
+  state = {
+    columns : null
+  }
+
   gridRef = React.createRef();
 
   selectBook = () => console.log("parent was selected :");
@@ -13,14 +18,16 @@ class ListBooks extends React.Component {
   getNumberOfGridColumns = () => {
     let gridColumnsComputedSyle = window.getComputedStyle(this.gridRef.current).getPropertyValue("grid-template-columns");
     let numberOfColumns = gridColumnsComputedSyle.split(" ").length;
-    console.log(numberOfColumns)
+    this.setState((prevState) => ({columns: numberOfColumns}));
   }
 
   componentDidMount(){
+    this.getNumberOfGridColumns()
+    // create an hoc for this?
     window.addEventListener("resize", debounce(this.getNumberOfGridColumns, 400, {
       'leading': false,
       'trailing': true
-  }))
+  }));
   }
 
   render(){
