@@ -38,7 +38,8 @@ class ListBooks extends React.Component {
       <div style={listStyles.root} ref={this.gridRef}>
         {books.map( (book, i) => (
           <div style={dynamicStyle} key={i} onClick={this.getNumberOfGridColumns}>
-            <Book book={book}/>
+            <Book book={book}
+                  gridColumns={this.state.columns}/>
           </div>))}
       </div>
     )

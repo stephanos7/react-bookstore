@@ -1,6 +1,6 @@
 import config from "./config-styles";
 
-const root = {    
+const root = {
   display: "grid",
   gridTemplateColumns: "175px 1fr",
   height: 255,
