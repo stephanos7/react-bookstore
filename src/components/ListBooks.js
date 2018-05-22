@@ -13,7 +13,7 @@ class ListBooks extends React.Component {
 
   gridRef = React.createRef();
 
-  selectBook = () => console.log("parent was selected :");
+  handleClick = () => this.props.selectBook();
 
   getNumberOfGridColumns = () => {
     let gridColumnsComputedSyle = window.getComputedStyle(this.gridRef.current).getPropertyValue("grid-template-columns");
@@ -37,9 +37,10 @@ class ListBooks extends React.Component {
     return (
       <div style={listStyles.root} ref={this.gridRef}>
         {books.map( (book, i) => (
-          <div style={dynamicStyle} key={i} onClick={this.getNumberOfGridColumns}>
+          <div style={dynamicStyle} key={i} onClick={this.handleClick}>
             <Book book={book}
-                  gridColumns={this.state.columns}/>
+                  gridColumns={this.state.columns}
+                  selectBook={this.selectBook}/>
           </div>))}
       </div>
     )

@@ -14,9 +14,14 @@ class App extends React.Component {
   state = {
     books : []
   }
+
   fetchAllBooks = (cb) => BooksAPI.getAll().then( books => cb(books, this.setStateWithEnrichedProducts));  
 
   setStateWithEnrichedProducts = (enrichedDataSet) => this.setState((prevState) => ({books:enrichedDataSet}));
+
+  selectBook = () => {
+    console.log("i am selecting the book in the top component, the APP!")
+  }
 
   componentDidMount(){
     this.fetchAllBooks(enrichDataWithProductProperties);
@@ -28,7 +33,8 @@ class App extends React.Component {
         <Style rules={styles} />
         <Route path="/" component={Header} />
         <Route path="/bookstore" render={() => (
-          <ListBooks books={this.state.books} />
+          <ListBooks books={this.state.books}
+                     selectBook={this.selectBook} />
         )} />
       </div>
     );
