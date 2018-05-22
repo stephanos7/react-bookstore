@@ -13,11 +13,9 @@ export default {
     ...root
   },
   selected:{
-    gridColumn: "span 2",
-    ...root
-  },
+    gridColumn: "span 2"
+    },
   collapsed:{
-    ...root,
     width:config.bookCover.width
   }
 }
