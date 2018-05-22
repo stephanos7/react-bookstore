@@ -13,7 +13,7 @@ export default {
     ...root
   },
   selected:{
-    width: 500,
+    gridColumn: "span 2",
     ...root
   }
 }

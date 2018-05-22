@@ -21,9 +21,25 @@ class App extends React.Component {
 
   selectBook = (bookId) => {
     const books = this.state.books
-    let booksWithSelectedBook = books.filter( book => {
+    // 1. with traditional for loop
+
+    // for(let i=0; i < books.length; i++){
+    //   if(books[i]._id === bookId){
+    //     books[i].selected = true;
+    //     books[i-1].selected = true;
+    //     books[i+1].selected = true;
+    //   }
+    // }
+    // this.setState(() => ({books}));
+
+    // 2. with a filter method
+
+    let booksWithSelectedBook = books.filter( (book, i, arr) => {
       if(book._id === bookId){
         book.selected = true;
+        arr[i-1].selected = true;
+        arr[i+1].selected = true;
+        
       }
       return book;
     });
