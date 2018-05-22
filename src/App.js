@@ -19,8 +19,15 @@ class App extends React.Component {
 
   setStateWithEnrichedProducts = (enrichedDataSet) => this.setState((prevState) => ({books:enrichedDataSet}));
 
-  selectBook = () => {
-    console.log("i am selecting the book in the top component, the APP!")
+  selectBook = (bookId) => {
+    const books = this.state.books
+    let booksWithSelectedBook = books.filter( book => {
+      if(book._id === bookId){
+        book.selected = true;
+      }
+      return book;
+    });
+    this.setState(() => ({books:booksWithSelectedBook}));
   }
 
   componentDidMount(){
