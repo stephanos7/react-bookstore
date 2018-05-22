@@ -17,5 +17,8 @@ export default  {
     white: "#FFFFFF",
     lightGrey: "#F0F0F0",
     darkGrey: "#646464"
+  },
+  bookCover: {
+    width: 175
   }
 }
