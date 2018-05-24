@@ -19,6 +19,6 @@ export default  {
     darkGrey: "#646464"
   },
   bookCover: {
-    width: 175
+    width: 160
   }
 }

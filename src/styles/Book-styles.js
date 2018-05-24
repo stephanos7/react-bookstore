@@ -13,9 +13,14 @@ export default {
     ...root
   },
   selected:{
-    gridColumn: "span 2"
-    },
+    ...root,
+    gridColumn: "span 2",
+    // add row below for by the same author section?
+    // height: "115%",
+  },
   collapsed:{
-    width:config.bookCover.width
+    ...root,
+    width:config.bookCover.width,
+    justifySelf: "center"
   }
 }
