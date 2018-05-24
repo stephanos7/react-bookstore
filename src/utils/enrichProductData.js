@@ -3,11 +3,13 @@ export const enrichDataWithProductProperties = (products, cb) => {
     {
       selected:{
         value:null, 
-        writable:true
+        writable:true,
+        enumerable : true 
       },
       collapsed:{
         value:null, 
-        writable:true
+        writable:true,
+        enumerable: true
       }
     }
   ));

@@ -8,6 +8,7 @@ import { enrichDataWithProductProperties } from "./utils/enrichProductData";
 import styles from "./styles/App-styles";
 import Header from "./components/Header";
 import ListBooks from "./components/ListBooks";
+import GridViewOptions from './components/GridViewOptions';
 
 class App extends React.Component {
 
@@ -56,9 +57,12 @@ class App extends React.Component {
         <Style rules={styles} />
         <Route path="/" component={Header} />
         <Route path="/bookstore" render={() => (
-          <ListBooks books={this.state.books}
-                     selectBook={this.selectBook} />
-        )} />
+          <div>
+            <GridViewOptions />
+            <ListBooks books={this.state.books}
+                      selectBook={this.selectBook} />
+          </div>
+          )} />
       </div>
     );
   }
