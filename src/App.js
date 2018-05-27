@@ -13,7 +13,8 @@ import GridViewOptions from './components/GridViewOptions';
 class App extends React.Component {
 
   state = {
-    books : []
+    books : [],
+    gridView : "narrow"
   }
 
   fetchAllBooks = (cb) => BooksAPI.getAll().then( books => cb(books, this.setStateWithEnrichedProducts));  
@@ -47,6 +48,10 @@ class App extends React.Component {
     this.setState(() => ({books:booksWithSelectedBook}));
   }
 
+  toggleView = () => {
+    this.setState(() => ({gridView:"normal"}));
+  }
+
   componentDidMount(){
     this.fetchAllBooks(enrichDataWithProductProperties);
   }
@@ -58,9 +63,10 @@ class App extends React.Component {
         <Route path="/" component={Header} />
         <Route path="/bookstore" render={() => (
           <div>
-            <GridViewOptions />
+            <GridViewOptions toggleView={this.toggleView} />
             <ListBooks books={this.state.books}
-                      selectBook={this.selectBook} />
+                       selectBook={this.selectBook}
+                       gridView={this.state.gridView} />
           </div>
           )} />
       </div>

@@ -2,8 +2,6 @@ import config from "./config-styles";
 
 const root = {
   display: "grid",
-  gridGap: 45,
-  gridTemplateColumns: "repeat(auto-fit, 320px)",
   justifyContent: "space-around",
   backgroundColor: config.colors.lightGrey,
   padding: "50px 0"
@@ -11,9 +9,13 @@ const root = {
 
 export default {
   narrow:{
-    ...root
+    ...root,
+    gridTemplateColumns: "repeat(auto-fit, 175px)",
+    gridGap: 30
   },
-  wider:{
-    ...root
+  normal:{
+    ...root,
+    gridTemplateColumns: "repeat(auto-fit, 320px)",
+    gridGap: 45
   }
 }
