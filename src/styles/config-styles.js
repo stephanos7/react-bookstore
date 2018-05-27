@@ -6,6 +6,7 @@ export const resetConfig = {
 	font: "inherit",
 	verticalAlign: "baseline"
 }
+export const bookCover = {width : 160};
 
 export default  {
   fonts:{
@@ -18,7 +19,9 @@ export default  {
     lightGrey: "#F0F0F0",
     darkGrey: "#646464"
   },
-  bookCover: {
-    width: 160
+  layouts: {
+    narrowCardSize: `${bookCover.width}px`,
+    normalCardSize : `${bookCover.width * 2}px`,
+    wideCardSize: `${bookCover.width * 4}px`
   }
 }

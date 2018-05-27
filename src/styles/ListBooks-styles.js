@@ -2,7 +2,7 @@ import config from "./config-styles";
 
 const root = {
   display: "grid",
-  justifyContent: "space-around",
+  justifyContent: "space-between",
   backgroundColor: config.colors.lightGrey,
   padding: "50px 0"
 }
@@ -10,12 +10,17 @@ const root = {
 export default {
   narrow:{
     ...root,
-    gridTemplateColumns: "repeat(auto-fit, 175px)",
+    gridTemplateColumns: `repeat(auto-fit, ${config.layouts.narrowCardSize})`,
     gridGap: 30
   },
   normal:{
     ...root,
-    gridTemplateColumns: "repeat(auto-fit, 320px)",
+    gridTemplateColumns: `repeat(auto-fit, ${config.layouts.normalCardSize})`,
     gridGap: 45
+  },
+  wide:{
+    ...root,
+    gridTemplateColumns: `repeat(auto-fit, ${config.layouts.wideCardSize})`,
+    gridGap: 10
   }
 }
