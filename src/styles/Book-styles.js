@@ -10,7 +10,8 @@ const root = {
 
 export default {
   normal:{
-    ...root
+    ...root,
+    backgroundColor: "lightBlue"
   },
   selected:{
     ...root,
@@ -18,9 +19,11 @@ export default {
     // add row below for by the same author section?
     // height: "115%",
   },
-  collapsed:{
+  narrow:{
+    ...root
+  },
+  wide :{
     ...root,
-    width:bookCover.width,
-    justifySelf: "center"
+    backgroundColor: "lightCoral"
   }
 }

@@ -35,9 +35,12 @@ class ListBooks extends React.Component {
 
     return (
       <div style={Object.assign({}, this.props.gridView === "narrow" && listStyles.narrow,
-                                    this.props.gridView === "normal" && listStyles.wide )} ref={this.gridRef}>
+                                    this.props.gridView === "normal" && listStyles.normal,
+                                    this.props.gridView === "wide" && listStyles.wide )} ref={this.gridRef}>
         {books.map((book, i) => (
-          <div style={bookStyles.collapsed}
+          <div style={Object.assign({}, this.props.gridView === "narrow" && bookStyles.narrow,
+                                        this.props.gridView === "normal" && bookStyles.normal,
+                                        this.props.gridView === "wide" && bookStyles.wide )}
                key={i} onClick={() => this.handleClick(book._id)}>
             <Book book={book}
                   gridColumns={this.state.columns}

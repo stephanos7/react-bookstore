@@ -48,8 +48,8 @@ class App extends React.Component {
     this.setState(() => ({books:booksWithSelectedBook}));
   }
 
-  toggleView = () => {
-    this.setState(() => ({gridView:"normal"}));
+  toggleView = (view) => {
+    this.setState(() => ({gridView:view}));
   }
 
   componentDidMount(){
