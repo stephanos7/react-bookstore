@@ -21,6 +21,7 @@ class ListBooks extends React.Component {
     console.log(numberOfColumns, "from the getNoOfGridCols method")
     this.setState((prevState) => ({columns: numberOfColumns}));
   }
+  handleClick = (viewValue) => this.props.toggleView(viewValue, this.getNumberOfGridColumns);
 
   componentDidMount(){
     this.getNumberOfGridColumns()
@@ -35,6 +36,21 @@ class ListBooks extends React.Component {
     const {books} = this.props;
 
     return (
+      <div>
+        <div>
+        <button style={{backgroundColor:"#16D3F9", fontSize:"2em"}}
+                value={"narrow"} 
+                onClick={(e) => this.handleClick(e.target.value)}>Narrow View
+        </button>
+        <button style={{backgroundColor:"#16D3F9", fontSize:"2em"}}
+                value={"normal"} 
+                onClick={(e) => this.handleClick(e.target.value)}>Normal View
+        </button>
+        <button style={{backgroundColor:"#16D3F9", fontSize:"2em"}}
+                value={"wide"} 
+                onClick={(e) => this.handleClick(e.target.value)}>Wide View
+      </button>
+      </div>
       <div style={Object.assign({}, this.props.gridView === "narrow" && listStyles.narrow,
                                     this.props.gridView === "normal" && listStyles.normal,
                                     this.props.gridView === "wide" && listStyles.wide )} ref={this.gridRef}>
@@ -49,6 +65,7 @@ class ListBooks extends React.Component {
                   selectBook={this.selectBook} />
           </div>))}
       </div>
+    </div>
     )
   }
 }

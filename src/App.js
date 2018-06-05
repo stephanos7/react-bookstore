@@ -48,8 +48,8 @@ class App extends React.Component {
     this.setState(() => ({books:booksWithSelectedBook}));
   }
 
-  toggleView = (view) => {
-    this.setState(() => {gridView:view});
+  toggleView = (view, cb) => {
+    this.setState(() => {gridView:view}, cb());
   }
   
   componentDidMount(){
@@ -63,9 +63,9 @@ class App extends React.Component {
         <Route path="/" component={Header} />
         <Route path="/bookstore" render={() => (
           <div>
-            <GridViewOptions toggleView={this.toggleView}/>
             <ListBooks books={this.state.books}
                        selectBook={this.selectBook}
+                       toggleView={this.toggleView}
                        gridView={this.state.gridView} />
           </div>
           )} />
