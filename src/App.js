@@ -23,8 +23,8 @@ class App extends React.Component {
 
   selectBook = (bookId, rowSize, viewMode) => {
     const books = this.state.books
-    console.log(rowSize)
-    console.log(viewMode)
+    console.log("on select, this is the row size", rowSize)
+    console.log("on select, this is the view mode",viewMode)
     // 1. with traditional for loop
     // for(let i=0; i < books.length; i++){
     //   if(books[i]._id === bookId){
