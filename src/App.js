@@ -49,7 +49,7 @@ class App extends React.Component {
   }
 
   toggleView = (view, cb) => {
-    this.setState(() => {gridView:view}, cb());
+    this.setState(() => ({gridView:view}), () => cb());
   }
   
   componentDidMount(){
