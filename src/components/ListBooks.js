@@ -18,6 +18,7 @@ class ListBooks extends React.Component {
   getNumberOfGridColumns = () => {
     let gridColumnsComputedSyle = window.getComputedStyle(this.gridRef.current).getPropertyValue("grid-template-columns");
     let numberOfColumns = gridColumnsComputedSyle.split(" ").length;
+    console.log(numberOfColumns, "from the getNoOfGridCols method")
     this.setState((prevState) => ({columns: numberOfColumns}));
   }
 
@@ -43,6 +44,7 @@ class ListBooks extends React.Component {
                                         this.props.gridView === "wide" && bookStyles.wide )}
                key={i} onClick={() => this.handleClick(book._id)}>
             <Book book={book}
+                  gridView={this.props.gridView}
                   gridColumns={this.state.columns}
                   selectBook={this.selectBook} />
           </div>))}

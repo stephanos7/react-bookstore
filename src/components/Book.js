@@ -8,7 +8,7 @@ const Book = (props) => {
   const {coverImage, authorName} = props.book;
 
   return(
-      <div>
+      <div style={props.book.selected ? {backgroundColor : "blue"} : {backgroundColor : "yellow"}}>
         <Cover imageURL={coverImage} />
         <BookDetails authorName={authorName} />
       </div>

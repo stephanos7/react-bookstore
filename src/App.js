@@ -38,19 +38,18 @@ class App extends React.Component {
     // 2. with a filter method
 
     let booksWithSelectedBook = books.filter((book, i, arr) => {
-      if(book._id === bookId && arr[i] > 1 && arr[i] < rowSize){
+      if(book._id === bookId){
         book.selected = true;
         arr[i-1].collapsed = true;
         arr[i+1].collapsed = true;
-        
       }
-      return books;
+      return book;
     });
     this.setState(() => ({books:booksWithSelectedBook}));
   }
 
   toggleView = (view) => {
-    this.setState(() => ({gridView:view}));
+    this.setState(() => {gridView:view}, console.log("hello"));
   }
 
   componentDidMount(){
