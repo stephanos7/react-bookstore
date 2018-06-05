@@ -21,10 +21,11 @@ class App extends React.Component {
 
   setStateWithEnrichedProducts = (enrichedDataSet) => this.setState((prevState) => ({books:enrichedDataSet}));
 
-  selectBook = (bookId) => {
+  selectBook = (bookId, rowSize, viewMode) => {
     const books = this.state.books
+    console.log(rowSize)
+    console.log(viewMode)
     // 1. with traditional for loop
-
     // for(let i=0; i < books.length; i++){
     //   if(books[i]._id === bookId){
     //     books[i].selected = true;

@@ -13,7 +13,7 @@ class ListBooks extends React.Component {
 
   gridRef = React.createRef();
 
-  handleClick = (bookId) => this.props.selectBook(bookId);
+  handleClick = (bookId) => this.props.selectBook(bookId, this.state.columns, this.props.gridView);
 
   getNumberOfGridColumns = () => {
     let gridColumnsComputedSyle = window.getComputedStyle(this.gridRef.current).getPropertyValue("grid-template-columns");
