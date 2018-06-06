@@ -12,8 +12,8 @@ class ListBooks extends React.Component {
   }
 
   gridRef = React.createRef();
-
-  handleClick = (bookId) => this.props.selectBook(bookId, this.state.columns, this.props.gridView);
+  
+  handleSelect = (bookId) => this.props.selectBook(bookId, this.state.columns, this.props.gridView);
 
   getNumberOfGridColumns = () => {
     let gridColumnsComputedSyle = window.getComputedStyle(this.gridRef.current).getPropertyValue("grid-template-columns");
@@ -21,7 +21,12 @@ class ListBooks extends React.Component {
     console.log(numberOfColumns, "from the getNoOfGridCols method")
     this.setState((prevState) => ({columns: numberOfColumns}));
   }
+
   handleClick = (viewValue) => this.props.toggleView(viewValue, this.getNumberOfGridColumns);
+
+  utilCreateStyle = (num) => {
+    return  {gridColumn : `span ${Math.floor(num/2)}`}
+  }
 
   componentDidMount(){
     this.getNumberOfGridColumns()
@@ -38,18 +43,18 @@ class ListBooks extends React.Component {
     return (
       <div>
         <div>
-        <button style={{backgroundColor:"#16D3F9", fontSize:"2em"}}
-                value={"narrow"} 
-                onClick={(e) => this.handleClick(e.target.value)}>Narrow View
+          <button style={{backgroundColor:"#16D3F9", fontSize:"2em"}}
+                  value={"narrow"} 
+                  onClick={(e) => this.handleClick(e.target.value)}>Narrow View
+          </button>
+          <button style={{backgroundColor:"#16D3F9", fontSize:"2em"}}
+                  value={"normal"} 
+                  onClick={(e) => this.handleClick(e.target.value)}>Normal View
+          </button>
+          <button style={{backgroundColor:"#16D3F9", fontSize:"2em"}}
+                  value={"wide"} 
+                  onClick={(e) => this.handleClick(e.target.value)}>Wide View
         </button>
-        <button style={{backgroundColor:"#16D3F9", fontSize:"2em"}}
-                value={"normal"} 
-                onClick={(e) => this.handleClick(e.target.value)}>Normal View
-        </button>
-        <button style={{backgroundColor:"#16D3F9", fontSize:"2em"}}
-                value={"wide"} 
-                onClick={(e) => this.handleClick(e.target.value)}>Wide View
-      </button>
       </div>
       <div style={Object.assign({}, this.props.gridView === "narrow" && listStyles.narrow,
                                     this.props.gridView === "normal" && listStyles.normal,
@@ -57,8 +62,9 @@ class ListBooks extends React.Component {
         {books.map((book, i) => (
           <div style={Object.assign({}, this.props.gridView === "narrow" && bookStyles.narrow,
                                         this.props.gridView === "normal" && bookStyles.normal,
-                                        this.props.gridView === "wide" && bookStyles.wide )}
-               key={i} onClick={() => this.handleClick(book._id)}>
+                                        this.props.gridView === "wide" && bookStyles.wide,
+                                        book.selected === true && this.utilCreateStyle(7) )}
+               key={i} onClick={() => this.handleSelect(book._id)}>
             <Book book={book}
                   gridView={this.props.gridView}
                   gridColumns={this.state.columns}

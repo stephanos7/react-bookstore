@@ -23,8 +23,8 @@ class App extends React.Component {
 
   selectBook = (bookId, rowSize, viewMode) => {
     const books = this.state.books
-    console.log(rowSize)
-    console.log(viewMode)
+    console.log("the row size on select: ", rowSize)
+    console.log("the view mode on select: ", viewMode)
     // 1. with traditional for loop
     // for(let i=0; i < books.length; i++){
     //   if(books[i]._id === bookId){
@@ -35,6 +35,8 @@ class App extends React.Component {
     // }
     // this.setState(() => ({books}));
 
+
+
     // 2. with a filter method
 
     let booksWithSelectedBook = books.filter((book, i, arr) => {
@@ -43,7 +45,7 @@ class App extends React.Component {
         arr[i-1].collapsed = true;
         arr[i+1].collapsed = true;
       }
-      return book;
+      return books;
     });
     this.setState(() => ({books:booksWithSelectedBook}));
   }

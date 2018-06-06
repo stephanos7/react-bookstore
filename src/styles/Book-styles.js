@@ -9,19 +9,18 @@ const root = {
 }
 
 export default {
+  narrow:{
+    ...root
+  },
   normal:{
     ...root,
     backgroundColor: "lightBlue"
   },
-  selected:{
-    ...root,
-    gridColumn: "span 2",
-    // add row below for by the same author section?
-    // height: "115%",
-  },
-  narrow:{
-    ...root
-  },
+  // selected:{
+  //   gridColumn: "span 2",
+  //   // add row below for by the same author section?
+  //   // height: "115%",
+  // },
   wide :{
     ...root,
     backgroundColor: "lightCoral"
